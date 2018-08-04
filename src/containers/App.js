@@ -5,6 +5,7 @@ import HomePage from '../pages/HomePage'
 import AboutPage from '../pages/AboutPage'
 import ContactPage from '../pages/ContactPage'
 import MeetupPage from '../pages/MeetupPage'
+import { Provider } from 'react-redux'
 
 const PrimaryLayout = () => (
   <div className="primary-layout">
@@ -18,12 +19,14 @@ const PrimaryLayout = () => (
 )
 
 
-const App = () => {
+const App = ({store}) => {
   baseStyles()
   return (
-    <BrowserRouter>
-      <PrimaryLayout />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <PrimaryLayout />
+      </BrowserRouter>
+    </Provider>
   )
 }
 
